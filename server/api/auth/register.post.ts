@@ -6,6 +6,12 @@ import { User } from "~~/server/types/User";
 export default defineEventHandler(async (event) => {
   const body: User = await readBody(event);
 
+  if (!body)
+    return sendError(
+      event,
+      createError({ statusCode: 400, statusMessage: "Invalid parameters" })
+    );
+
   const { name, username, password, repeatPassword, email } = body;
 
   if (!name || !username || !password || !repeatPassword || !email)
@@ -29,6 +35,6 @@ export default defineEventHandler(async (event) => {
   });
 
   return {
-    body: userTransformer(user as User),
+    body: userTransformer(user),
   };
 });
