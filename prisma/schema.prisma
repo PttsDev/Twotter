@@ -21,7 +21,15 @@ model User {
 
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
+
+  // Refresh Token
   RefreshToken RefreshToken[]
+
+  // Tweets
+  tweet        Tweet[]
+
+  // Media Files
+  mediaFiles   MediaFile[]
 }
 
 model RefreshToken {
@@ -33,4 +41,48 @@ model RefreshToken {
 
   userId       String    @db.ObjectId
   user         User      @relation(fields: [userId], references: [id])
+}
+
+model Tweet {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  text         String
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Author
+  author       User     @relation(fields: [authorId], references: [id])
+  authorId     String   @db.ObjectId
+
+  // Replies
+  // Tweet is replaying to... (this tweet can reply)
+  replyToId    String?  @db.ObjectId
+  replyTo      Tweet?   @relation("replies", fields: [replyToId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  // Tweet is being replied by... (other tweets can reply to this tweet)
+  replies      Tweet[]  @relation("replies")
+
+  // Media files, img... etc
+  mediaFiles   MediaFile[]
+
+  // Likes, retweets, etc
+  //TODO
+}
+
+model MediaFile {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  url              String
+  type             String
+  providerPublicId String
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // User 
+  userId           String   @db.ObjectId
+  user             User     @relation(fields: [userId], references: [id])
+
+  // Tweet
+  // It can be null if the media file is not related to a tweet
+  tweetId      String?   @db.ObjectId
+  tweet        Tweet?    @relation(fields: [tweetId], references: [id])
 }
