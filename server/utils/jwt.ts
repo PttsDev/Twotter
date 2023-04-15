@@ -22,10 +22,30 @@ const generateRefreshToken = (user: User): string => {
   });
 };
 
+export const decodeRefreshToken = (token: string): any => {
+  const config = useRuntimeConfig();
+
+  try {
+    return jwt.verify(token, config.jwtRefreshSecret);
+  } catch (e) {
+    return null;
+  }
+};
+
+export const decodeAccessToken = (token: string): any => {
+  const config = useRuntimeConfig();
+
+  try {
+    return jwt.verify(token, config.jwtAccessSecret);
+  } catch (e) {
+    return null;
+  }
+};
+
 export const generateTokens = (user: User): JWT => {
   return {
-    accessToken: generateRefreshToken(user),
-    refreshToken: generateAccessToken(user),
+    accessToken: generateAccessToken(user),
+    refreshToken: generateRefreshToken(user),
   };
 };
 

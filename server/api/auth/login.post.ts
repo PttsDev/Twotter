@@ -9,7 +9,6 @@ import { RefreshToken } from "@prisma/client";
 
 export default defineEventHandler(async (event) => {
   const body: User = await readBody(event);
-
   const { username, password }: User = body;
 
   if (!username || !password) {

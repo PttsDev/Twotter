@@ -12,8 +12,8 @@
 
     <div class="flex flex-row h-full">
       <button class="py-2 px-4 self-center rounded-full font-bold text-sm bg-black text-white dark:bg-white dark:text-dim-900
-                                                hover:bg-gray-900 dark:hover:bg-gray-100
-                                                ">
+                                                              hover:opacity-80
+                                                              ">
         Follow
       </button>
     </div>
