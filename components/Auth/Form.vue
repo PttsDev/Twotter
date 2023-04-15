@@ -4,7 +4,7 @@
     <UIInput label="Password" placeholder="*********" type="password" v-model="data.password"
       @keyup.enter.native="handleLogin" />
     <div>
-      <button @click="handleLogin">Login</button>
+      <UIButton @click="handleLogin">Login</UIButton>
     </div>
   </div>
 </template>

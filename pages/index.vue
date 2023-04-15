@@ -1,13 +1,15 @@
 <template>
   <div>
     <MainSection title="Home" :loading="loading">
-      <p class="ml-4">Homepage</p>
+      {{ user }}
     </MainSection>
   </div>
 </template>
 
 <script setup>
 
-const loading = ref(true)
+const loading = ref(false)
+const { useAuthUser } = useAuth()
+const user = useAuthUser()
 
 </script>

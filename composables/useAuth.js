@@ -1,3 +1,5 @@
+import jwtDecode from "jwt-decode"
+
 export default () => {
 
   const useAuthToken = () => useState('auth_token')
@@ -57,12 +59,31 @@ export default () => {
       console.log(err)
     }
   }
+  const reRefreshAccessToken = () => {
+
+    const authToken = useAuthToken()
+
+    if (!authToken.value) return
+
+    const jwt = jwtDecode(authToken.value)
+    const newRefreshTime = jwt.exp - 60000 // 1 minute before token expires refresh it
+
+    setTimeout(async () => {
+      // wait before rerefreshing avoiding multiple refreshes
+      await refreshToken()
+      reRefreshAccessToken()
+    }, newRefreshTime)
+
+  }
 
   const initAuth = async () => {
     setIsAuthLoading(true)
     try {
       await refreshToken()
       await getUser()
+
+      reRefreshAccessToken()
+
     } catch (err) {
       console.log(err)
     } finally {
