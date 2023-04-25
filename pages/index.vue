@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MainSection class="max-w-3xl" title="Home" :loading="loading">
+    <MainSection class="max-w-xl" title="Home" :loading="loading">
       <TweetForm :user="user"></TweetForm>
     </MainSection>
   </div>

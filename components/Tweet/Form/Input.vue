@@ -7,18 +7,17 @@
     <div class="w-full p-2">
       <textarea
         class="w-full h-10 text-lg text-gray-900 placeholder:text-gray-400 bg-transparent border-0
-                                                                                                                                                                                                                                                                                                                                                                 dark:text-white focus:ring-0 overflow-hidden resize-none"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           dark:text-white focus:ring-0 overflow-hidden resize-none"
         placeholder="What's happening?" v-model="tweetText"></textarea>
     </div>
   </div>
 
-  <div class="p-4 pl-16 ">
-
+  <div class="p-4 pl-16 self-center">
     <div v-if="inputMedia" class="max-w-xl">
       <IconsXCircle @click="handleRemoveMedia"
         class="absolute m-2 w-8 h-8 cursor-pointer opacity-80 hover:opacity-60 bg-gray-100 dark:fill-white dark:bg-dim-700 rounded-full p-1.5">
       </IconsXCircle>
-      <img :src="inputMedia" v-if="inputMedia" alt="uploaded image" class="rounded-2xl border w-full"
+      <img :src="inputMedia" v-if="inputMedia" alt="uploaded image" class="rounded-2xl border max-w-full"
         :class="twitterBorderColor" />
     </div>
 
