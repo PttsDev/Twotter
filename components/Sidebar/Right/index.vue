@@ -58,21 +58,21 @@ let WTFItems = ref<WTFItemsType>({
 
   1: {
     id: 1,
-    name: 'frangamer11',
-    handle: '@Rindouxd',
-    img: 'https://pbs.twimg.com/profile_images/1639950956803571712/vTQlzGzG_200x200.jpg',
+    name: 'Obunga',
+    handle: '@Obunga6',
+    img: 'https://i.pinimg.com/originals/61/a5/a1/61a5a1eec1183ed481e9212a9ff506b0.jpg',
   },
   2: {
     id: 2,
     name: 'Albert Chicote',
     handle: '@albertchicote',
-    img: 'https://picsum.photos/200/200',
+    img: 'https://pbs.twimg.com/profile_images/1603401210064781312/ftrvO_-r_200x200.jpg',
   },
   3: {
     id: 3,
-    name: 'Carles Tamayo',
-    handle: '@TamayoStuff',
-    img: 'https://pbs.twimg.com/profile_images/1381364300292489222/FRc6o_TR_200x200.jpg',
+    name: 'Sussy Baka',
+    handle: '@Amogus',
+    img: 'https://pbs.twimg.com/profile_images/1612500859681898497/dBWSN1vL_200x200.jpg',
   }
 })
 
