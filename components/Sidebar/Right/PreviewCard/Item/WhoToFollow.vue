@@ -2,9 +2,13 @@
   <div class="flex flex-row items-center justify-between">
     <div class="flex flex-row items-center">
 
-      <img class="w-10 h-10 rounded-full " :src="props.value ? props.value.img : ''" :alt="props.value.handle">
+      <img class="hover:opacity-80 w-10 h-10 rounded-full" :class="defaultTransition"
+        :src="props.value ? props.value.img : ''" :alt="props.value.handle">
       <div class="flex flex-col ml-3">
-        <p class="font-bold text-gray-900 dark:text-white">{{ props.value ? props.value.name : 'Could not load' }}</p>
+        <p class="hover:underline font-bold text-gray-900 dark:text-white" :class="defaultTransition">{{ props.value ?
+          props.value.name :
+          'Could not load'
+        }}</p>
         <p class="text-md text-gray-400">{{ props.value ? props.value.handle : 'Could not load' }}</p>
       </div>
 

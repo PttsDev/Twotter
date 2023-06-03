@@ -7,7 +7,7 @@
     <div class="w-full p-2">
       <textarea
         class="w-full h-10 text-lg text-gray-900 placeholder:text-gray-400 bg-transparent border-0
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           dark:text-white focus:ring-0 overflow-hidden resize-none"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     dark:text-white focus:ring-0 overflow-hidden resize-none"
         placeholder="What's happening?" v-model="tweetText"></textarea>
     </div>
   </div>
@@ -47,7 +47,8 @@
         <IconsLocation></IconsLocation>
       </div>
     </div>
-    <UIButton class="mr-8" bgColor="bg-blue-400" textColor="text-gray-100" @click="handleFormSubmit">Tweet</UIButton>
+    <UIButton class="mr-8" type="secondary" :disabled="isDisabled" @click="handleFormSubmit">Tweet
+    </UIButton>
   </div>
 </template>
 
@@ -60,7 +61,13 @@ const selectedFile = ref(null)
 const tweetText = ref('')
 const inputMedia = ref('')
 
+
 const emits = defineEmits(['onSubmit'])
+
+const isDisabled = computed(() => {
+  return !tweetText.value && !selectedFile.value
+})
+
 const props = defineProps({
   user: {
     type: Object,
