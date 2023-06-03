@@ -8,5 +8,4 @@ node_modules
 dist
 .DS_Store
 .env.sample
-server/.env.sample
 package-lock.json
