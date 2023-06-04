@@ -21,10 +21,13 @@ export default defineEventHandler(async (event) => {
   const { fields, files } = response;
   const userId: string = event.context?.auth?.user?.id;
 
-  const tweetData = {
+  const tweetData: any = {
     text: fields.text,
     authorId: userId,
   };
+
+  const replyTo = fields.replyTo;
+  if (replyTo && replyTo !== "null") tweetData.replyToId = replyTo;
 
   const tweet = await createTweet(tweetData);
   const filePromises = Object.keys(files).map(async (key) => {

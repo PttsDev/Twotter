@@ -4,7 +4,7 @@ import { sendError } from "h3";
 import { getUserById } from "../db/users";
 
 export default defineEventHandler(async (event) => {
-  const endpoints = ["/api/auth/user", "/api/user/tweets"];
+  const endpoints = ["/api/auth/user", "/api/user/tweets", "/api/tweets"];
 
   const isValidEndpoint = endpoints.some((endpoint) => {
     const pattern = new UrlPattern(endpoint);
