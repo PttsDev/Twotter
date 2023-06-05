@@ -2,7 +2,7 @@
   <nuxt-link :to="tweetUrl">
     <article class="hover:backdrop-brightness-95 dark:hover:backdrop-brightness-110 hover:cursor-pointer w-full border-b"
       :class="[twitterBorderColor, defaultTransition]">
-      <div class="flex flex-col items-centermr-8 pb-3 pt-1">
+      <div class="flex flex-col pb-1 pt-1">
 
         <div class="flex flex-row ml-4 mt-4 items-start gap-4">
           <TweetItemHeaderImage :author="props.tweet.author" />
@@ -10,7 +10,8 @@
           <div>
             <TweetItemHeaderUser :tweet="props.tweet" />
             <TweetItemContent :tweet="props.tweet" />
-            <TweetItemActions />
+
+            <TweetItemActions :tweet="tweet" />
           </div>
 
         </div>

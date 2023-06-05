@@ -1,24 +1,49 @@
 <template>
-  <div class="flex flex-row gap-28 cursor-pointer">
+  <div class="flex flex-row sm:gap-28 gap-16">
 
 
-    <nuxt-link to="#" class="hover:bg-blue-500/20 rounded-full p-1">
-      <IconsReply class="fill-gray-500 " />
-    </nuxt-link>
+    <TweetItemActionsIcon color="blue">
+      <template v-slot:icon="{ classes }">
+        <IconsReply :class="classes" />
+      </template>
 
-    <nuxt-link to="#" class="hover:bg-green-400/20 rounded-full p-1">
-      <IconsRetweet class="fill-gray-500 " />
-    </nuxt-link>
+      <template v-slot:default>
+        9
+      </template>
+    </TweetItemActionsIcon>
 
-    <nuxt-link to="#" class="hover:bg-red-400/20 rounded-full p-1">
-      <IconsLike class="fill-gray-500 " />
-    </nuxt-link>
+    <TweetItemActionsIcon color="red">
+      <template v-slot:icon="{ classes }">
+        <IconsRetweet :class="classes" />
+      </template>
 
+      <template v-slot:default>
+        9
+      </template>
+    </TweetItemActionsIcon>
 
+    <TweetItemActionsIcon color="green">
+      <template v-slot:icon="{ classes }">
+        <IconsLike :class="classes" />
+      </template>
+
+      <template v-slot:default>
+        9
+      </template>
+    </TweetItemActionsIcon>
 
   </div>
 </template>
 
 <script setup>
+
+
+const props = defineProps({
+  tweet: {
+    type: Object,
+    required: true
+  }
+})
+
 
 </script>
