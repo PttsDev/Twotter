@@ -37,7 +37,7 @@
 
 <script setup>
 
-const darkMode = ref(false)
+const darkMode = ref(true)
 const { useAuthUser, initAuth, useAuthLoading } = useAuth()
 const user = useAuthUser()
 const isAuthLoading = useAuthLoading()
