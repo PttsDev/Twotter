@@ -8,7 +8,9 @@ export default defineEventHandler(async (event) => {
 
   const isValidEndpoint = endpoints.some((endpoint) => {
     const pattern = new UrlPattern(endpoint);
-    const accessingEndpoint = event.node.req.url;
+    let url = event.node.req.url;
+    /* Remove trailing / if it exists */
+    const accessingEndpoint = url?.replace(/\/+$/, "");
     /* in case the accessingEndpoint is undefined */
     return accessingEndpoint && pattern.match(accessingEndpoint);
   });
