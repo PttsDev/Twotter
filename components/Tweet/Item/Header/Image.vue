@@ -1,7 +1,5 @@
 <template>
-  <nuxt-link :to="author.username">
-    <img class="w-12 h-12 rounded-full" :src="props.author.profileImage" :alt="props.author.username" />
-  </nuxt-link>
+  <img class="w-12 h-12 rounded-full" :src="props.author.profileImage" :alt="props.author.username" />
 </template>
 
 <script setup>
