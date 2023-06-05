@@ -1,6 +1,8 @@
 import { Tweet } from "@prisma/client";
 import { mediaFileTransformer } from "./mediaFiles";
 import { userTransformer } from "./user";
+//@ts-ignore
+import human from "human-time";
 
 export const tweetTransformer: any = (tweet: Tweet & any) => {
   return {
@@ -13,5 +15,6 @@ export const tweetTransformer: any = (tweet: Tweet & any) => {
     replies: tweet.replies ? tweet.replies.map(tweetTransformer) : [],
     replyTo: tweet.replyTo ? tweetTransformer(tweet.replyTo) : null,
     repliesCount: tweet.replies ? tweet.replies.length : 0,
+    postedAtHuman: human(tweet.createdAt),
   };
 };
