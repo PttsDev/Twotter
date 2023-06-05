@@ -8,27 +8,27 @@
       </template>
 
       <template v-slot:default>
-        9
-      </template>
-    </TweetItemActionsIcon>
-
-    <TweetItemActionsIcon color="red">
-      <template v-slot:icon="{ classes }">
-        <IconsRetweet :class="classes" />
-      </template>
-
-      <template v-slot:default>
-        9
+        {{ props.tweet.repliesCount > 0 ? props.tweet.repliesCount : '' }}
       </template>
     </TweetItemActionsIcon>
 
     <TweetItemActionsIcon color="green">
       <template v-slot:icon="{ classes }">
+        <IconsRetweet :class="classes" />
+      </template>
+
+      <template v-slot:default>
+        {{ props.tweet.retweetsCount > 0 ? props.tweet.retweetsCount : '' }}
+      </template>
+    </TweetItemActionsIcon>
+
+    <TweetItemActionsIcon color="red">
+      <template v-slot:icon="{ classes }">
         <IconsLike :class="classes" />
       </template>
 
       <template v-slot:default>
-        9
+        {{ props.tweet.likesCount > 0 ? props.tweet.likesCount : '' }}
       </template>
     </TweetItemActionsIcon>
 
@@ -44,6 +44,5 @@ const props = defineProps({
     required: true
   }
 })
-
 
 </script>

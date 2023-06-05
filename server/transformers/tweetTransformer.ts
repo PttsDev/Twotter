@@ -15,6 +15,9 @@ export const tweetTransformer: any = (tweet: Tweet & any) => {
     replies: tweet.replies ? tweet.replies.map(tweetTransformer) : [],
     replyTo: tweet.replyTo ? tweetTransformer(tweet.replyTo) : null,
     repliesCount: tweet.replies ? tweet.replies.length : 0,
+    /* TODO likes and retweets */
+    likesCount: tweet.likes ? tweet.likes.length : 0,
+    retweetsCount: tweet.retweets ? tweet.retweets.length : 0,
     postedAtHuman: human(tweet.createdAt),
   };
 };
