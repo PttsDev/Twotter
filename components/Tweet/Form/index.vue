@@ -25,7 +25,6 @@ const props = defineProps({
 
 async function handleFormSubmit(tweetData) {
   loading.value = true
-  const { postTweet } = useTweets()
   try {
     const res = await postTweet({
       text: tweetData.text,

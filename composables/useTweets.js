@@ -9,13 +9,31 @@ export default () => {
       form.append(`media_file_${index}`, mediaFile);
     })
 
-    return await useFetchApi('/api/user/tweets', {
-      method: 'POST',
-      body: form
-    })
+    try {
+      return await useFetchApi('/api/user/tweets', {
+        method: 'POST',
+        body: form
+      })
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+
+  const getHomeTweets = async () => {
+    try {
+      return await useFetchApi('/api/tweets', {
+        method: 'GET'
+
+      })
+    } catch (err) {
+      console.log(err);
+    }
+
   }
 
   return {
-    postTweet
+    postTweet,
+    getHomeTweets
   }
 }
