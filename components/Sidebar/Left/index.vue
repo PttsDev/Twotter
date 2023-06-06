@@ -3,7 +3,7 @@
 
 
     <div class="p-2 my-2 rounded-full hover:bg-blue-100 w-min
-        dark:hover:bg-white/20" :class="defaultTransition">
+          dark:hover:bg-white/20" :class="defaultTransition">
 
       <nuxt-link to=" /">
         <div class="w-8 h-8 ">
@@ -14,7 +14,7 @@
 
     <!-- Sidebar items -->
     <div class="mt-2 space-y-3">
-      <SidebarLeftTab active>
+      <SidebarLeftTab to="/" active>
         <template v-slot:icon>
           <HomeIcon />
         </template>

@@ -1,5 +1,5 @@
 <template>
-  <div  class="flex flex-col flex-shrink">
+  <div class="flex flex-col flex-shrink">
     <p v-if="props.tweet.replyTo" class="text-gray-400 font-normal">Replying to
       <nuxt-link class="hover:cursor-pointer hover:underline text-blue-500" :to="replyToTweetAuthor.username">{{
         replyToTweetAuthor.handle
@@ -20,7 +20,7 @@ const props = defineProps({
     required: true
   }
 })
-console.log(props.tweet)
+
 const replyToTweetAuthor = props.tweet.replyTo?.author
 const replyToTweetUrl = computed(() => `${props.replyToTweetAuthor.author.username}/status/${props.tweet?.replyTo?.id}`)
 

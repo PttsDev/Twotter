@@ -1,6 +1,6 @@
 <template>
-  <nuxt-link to="#" class="flex items-center p-3 w-min gap-2 hover:bg-gray-200 rounded-full text-black
-          dark:hover:bg-dim-200 dark:text-white" :class="defaultTransition">
+  <nuxt-link :to="props.to" class="flex items-center p-3 w-min gap-2 hover:bg-gray-200 rounded-full text-black
+            dark:hover:bg-dim-200 dark:text-white" :class="defaultTransition">
 
     <div class="w-7 h-7 text-dark">
       <slot name="icon"></slot>
@@ -22,6 +22,10 @@ const props = defineProps({
   active: {
     type: Boolean,
     default: false
+  },
+  to: {
+    type: String,
+    default: '#'
   }
 })
 

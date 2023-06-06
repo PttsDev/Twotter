@@ -4,7 +4,7 @@
   </div>
 
   <div v-else>
-    <TweetFormInput class="max-w-sm" :user="props.user" @onSubmit="handleFormSubmit" />
+    <TweetFormInput :placeholder="placeholder" class="max-w-sm" :user="props.user" @onSubmit="handleFormSubmit" />
   </div>
 </template>
 
@@ -18,6 +18,10 @@ const props = defineProps({
   user: {
     type: Object,
     required: true
+  },
+  placeholder: {
+    type: String,
+    default: 'What\'s happening?'
   }
 })
 

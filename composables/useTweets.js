@@ -32,8 +32,22 @@ export default () => {
 
   }
 
+
+  const getTweetById = async (tweetId) => {
+
+    try {
+      return await useFetchApi(`/api/tweets/${tweetId}`, {
+        method: 'GET'
+      })
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
+
   return {
     postTweet,
-    getHomeTweets
+    getHomeTweets,
+    getTweetById
   }
 }

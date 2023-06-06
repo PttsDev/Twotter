@@ -3,6 +3,7 @@ import { mediaFileTransformer } from "./mediaFiles";
 import { userTransformer } from "./user";
 //@ts-ignore
 import human from "human-time";
+import moment from "moment";
 
 export const tweetTransformer: any = (tweet: Tweet & any) => {
   return {
@@ -18,6 +19,7 @@ export const tweetTransformer: any = (tweet: Tweet & any) => {
     /* TODO likes and retweets */
     likesCount: tweet.likes ? tweet.likes.length : 0,
     retweetsCount: tweet.retweets ? tweet.retweets.length : 0,
+    postedAt: moment(tweet.createdAt).format("h:mm a · DD MMM. YYYY"),
     postedAtHuman: human(tweet.createdAt),
   };
 };
