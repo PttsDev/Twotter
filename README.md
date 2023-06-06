@@ -1,21 +1,24 @@
-# Nuxt 3 Minimal Starter
+# Twitter Clone
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This project is my personal rendition of a Twitter clone, developed purely for the purpose of learning and expanding my skills.
+
+
+## Technologies used
+
+* Nuxt 3
+* Tailwind CSS
+* MongoDB
+* Prisma orm
+* Cloudinary API
+* Typescript
 
 ## Setup
-
 Make sure to install the dependencies:
-
 ```bash
-# yarn
-yarn install
-
 # npm
 npm install
-
-# pnpm
-pnpm install
 ```
+Modify `.env.sample` to `.env` and replace the placeholder values with the appropriate information specific to your setup.
 
 ## Development Server
 
@@ -24,19 +27,3 @@ Start the development server on http://localhost:3000
 ```bash
 npm run dev
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
